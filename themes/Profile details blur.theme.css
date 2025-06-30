@@ -1,0 +1,32 @@
+/**
+ * @name Blur Profile Details
+ * @description Blurs profile pictures, and user banners across Discord.
+ * @version 1.0
+ * @author Lewit61
+ */
+
+:root {
+  --blur-amount: 10px; /* Adjust blur intensity */
+}
+
+/* ----- Avatars in chat, member list, user popouts, DMs, etc. ----- */
+img[class*="avatar"],
+[class*="avatar"] img,
+[class*="avatar-"],
+[class*="userAvatar"],
+[class*="wrapper-"] foreignObject,
+[class*="wrapper-"] svg,
+[class*="avatarWrapper-"] foreignObject,
+[class*="avatarWrapperNormal-"] foreignObject {
+  filter: blur(var(--blur-amount)) !important;
+  transition: filter 0.3s ease;
+}
+
+/* ----- User banners (profile popouts and full profiles) ----- */
+[class*="banner-"],
+[class*="userPopoutBanner-"],
+[class*="profileBanner-"],
+[class*="profileBannerPreview-"] {
+  filter: blur(var(--blur-amount)) !important;
+  transition: filter 0.3s ease;
+}

@@ -1,0 +1,35 @@
+/**
+ * @name Blur Chat Media
+ * @description Blurs user-sent images, GIFs, and videos. 
+ * @version 1.0
+ * @author Lewit61
+ */
+
+:root {
+  --blur-amount: 10px; /* Adjust blur intensity here */
+}
+
+/* ----- Image, GIF, and Video Attachments in Chat ----- */
+[class*="imageWrapper"],
+[class*="mediaAttachmentsContainer"],
+[class*="lazyImgContainer"],
+[class*="lazyImg"],
+[class*="videoWrapper"] video,
+[class*="imageWrapper"] video,
+[class*="media"] img,
+[class*="media"] video {
+  filter: blur(var(--blur-amount)) !important;
+  transition: filter 0.3s ease;
+  pointer-events: none;
+}
+
+/* ----- Optional: Unblur on hover ----- */
+[class*="imageWrapper"]:hover,
+[class*="mediaAttachmentsContainer"]:hover,
+[class*="lazyImgContainer"]:hover,
+[class*="lazyImg"]:hover,
+[class*="videoWrapper"]:hover video,
+[class*="media"]:hover img,
+[class*="media"]:hover video {
+  filter: none !important;
+}
